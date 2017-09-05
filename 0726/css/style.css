@@ -1,0 +1,64 @@
+@charset "utf-8";
+body,div,h1,h2,html,p,span,ul{margin:0;padding:0;border:0;outline:0}
+body{font:14px/24px Arial,Helvetica,sans-serif}	
+@font-face {
+  font-family: 'iconfont';  /* project id 365952 */
+  src: url('//at.alicdn.com/t/font_1jz2ulfilciejyvi.eot');
+  src: url('//at.alicdn.com/t/font_1jz2ulfilciejyvi.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1jz2ulfilciejyvi.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1jz2ulfilciejyvi.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1jz2ulfilciejyvi.svg#iconfont') format('svg');
+}
+[class*=icon-]:after,[class^=icon_]:after,[class*=icon-]:before,[class^=icon_]:before{font-family:iconfont!important;font-style:normal;-webkit-font-smoothing:antialiased}
+.icon-start:before { content: "\e626";}
+.wrapper{margin: 20px;}
+h2{font-size: 18px;font-weight: normal;text-align: center;color: #FF0000;}
+.icon-start{
+    position: absolute;
+    left: 50%;
+    margin-left: -10px;
+    z-index: 1;
+    font-size: 20px;
+    text-align: center;
+    color: #ff0000;
+    top: -12px;
+}
+.left,.right{
+		width: calc(50% - 40px);
+    display: block;
+    position: absolute;
+    left: 0;
+    background-image: -webkit-linear-gradient(#ff0000, #ddd 50%, transparent 50%);
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#ff0000), color-stop(0.5, #ff0000), color-stop(0.5, transparent));
+    background-image: linear-gradient(#ff0000, #ff0000 50%, transparent 50%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: top;
+    height: 45px;
+}
+.right{left: inherit;right: 0;}
+.title{position: relative;height: 45px;top: 20px;}
+h1{font-weight: normal;font-size: 20px;margin: 0 20px;text-align: center;}
+p{font-size: 14px;color: #ccc;text-align: center;margin: 5px 0 15px;}	
+
+
+
+/*pre*/
+a{text-decoration: none;}
+.inform-item{
+	  display: -webkit-box;display: -webkit-flex;display: flex;
+    -webkit-box-orient: horizontal;-webkit-flex-direction: row;flex-direction: row;
+    -webkit-box-align: center;-webkit-align-items: center;align-items: center;
+    -webkit-box-pack: start;-webkit-justify-content: flex-start;justify-content: flex-start;
+    padding: 10px 10px 10px 0;
+    margin-left: 10px;
+    background-image: -webkit-linear-gradient(#ddd, #ddd 50%, transparent 50%);
+    background-image: -webkit-gradient(linear, 0 0, 100% 0, from(#ddd), color-stop(0.5, #ddd), color-stop(0.5, transparent));
+    background-image: linear-gradient(#ddd, #ddd 50%, transparent 50%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom;	
+}
+.inform-item>dl{margin: 0;}
+.inform-item>dl dt{font-size: 12px;color: #ccc;}
+.inform-item>dl dd{margin: 0;font-size: 16px;color: #000;}

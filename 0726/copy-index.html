@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title></title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<h2></h2>
+		<div class="title">
+			<div class="icon-font icon-start"></div>
+			<div class="left"></div>
+			<div class="right"></div>
+		</div>
+		<div class="info"></div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			function demopage_switchslider(){  
+			    news_id=window.location.href.substring(window.location.href.indexOf('#')+1);  
+			    if(news_id!==undefined&&news_id!==''&&window.location.href.indexOf('#')>0){  
+			        getNews(news_id);//根据截取的id读取相应json
+			    }  
+			} 
+			demopage_switchslider();//截取url中#后面的内容						
+			console.log(news_id);
+			
+			function getNews (news_id)
+			{
+				var url='4.json';
+				$.get(url,function (res) {			
+					if (res.status_code == '200' && res.status == 'success')
+					{
+						
+						for(var i=0;i<res.object.length;i++){
+							if(res.object[i].id==news_id){
+								$('.wrapper h2').html(res.object[i].news_user);
+								var HTML="";		
+								HTML+="<h1>"+res.object[i].news_title+"</h1>";
+								HTML+="<p>"+res.object[i].news_time+"</p>";
+								HTML+="<div>"+res.object[i].news_info+"</div>";						
+								$('.info').html(HTML);	
+							}
+						}					
+					}
+				});
+			}			
+		})
+		
+	</script>
+</body>
+</html>

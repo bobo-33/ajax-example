@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title></title>
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,minimal-ui">
+	<link rel="stylesheet" type="text/css" href="css/style.css"/>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+</head>
+<body>
+	<div class="wrapper">
+		<ul></ul>
+	</div>
+	<script type="text/javascript">			
+//		ajax/ajax-$.each/localStorage-----的应用
+		$(function(){
+			var url="2.json";
+			$.get(url,function(res){
+				if(res.status=="success"&&res.status_code=="200"){
+					var HTML="";
+					var arr=[];
+					$.each(res.object, function (i, item) {  
+			            HTML+="<a  id='"+item.id+"'>";
+						HTML+="<li class='inform-item'><dl><dt>"+item.time+"</dt>";
+						HTML+="<dd>"+item.title+"</dd></dl></li></a>";
+						$('.wrapper ul').html(HTML); //读取json
+						arr.push(item.id);	//把所有新闻的id放到一个数组中
+			        }); 
+			        console.log(arr)
+					localStorage.setItem("news_id",arr); //把数组存储起来
+					var news_id=localStorage.news_id; //读取数组
+			        console.log(news_id);	
+					$('.wrapper ul a').click(function(){
+						console.log(arr[$(this).index()] );	
+						window.location='copy-index.html#'+arr[$(this).index()];//点击某一条新闻给其链接添加一个id
+					})
+				}
+			})
+		})
+	</script>
+</body>
+</html>
